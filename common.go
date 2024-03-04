@@ -4,8 +4,6 @@
 //
 // TODO: Adding to the pool. (Add the given vdevs to the pool)
 // TODO: Scan for pools.
-//
-//
 package zfs
 
 /*
@@ -176,11 +174,15 @@ const (
 	PoolPropLeaked
 	PoolPropMaxBlockSize
 	PoolPropTName
-	PoolPropMaxNodeSize
+	PoolPropMaxDNodeSize
 	PoolPropMultiHost
 	PoolPropCheckpoint
 	PoolPropLoadGuid
 	PoolPropAutotrim
+	PoolPropCompatibility
+	PoolPropBcloneUsed
+	PoolPropBcloneSaved
+	PoolPropBcloneRatio
 	PoolNumProps
 )
 
@@ -284,6 +286,10 @@ const (
 	DatasetPropKeyGUID
 	DatasetPropKeyStatus
 	DatasetPropRemapTXG /* not exposed to the user */
+	DatasetPropSpecialSmallBlocks
+	DatasetPropIVSetGuid /* not exposed to the user */
+	DatasetPropRedacted
+	DatasetPropRedactSnaps
 	DatasetNumProps
 )
 
@@ -398,6 +404,12 @@ const (
 	ETrimNotsup                             /* device does not support trim */
 	ENoResilverDefer                        /* pool doesn't support resilver_defer */
 	EExportInProgress                       /* currently exporting the pool */
+	ERebuilding                             /* resilvering (sequential reconstrution) */
+	EVdevNotSup                             /* ops not supported for this type of vdev */
+	ENotUserNamespace                       /* a file is not a user namespace */
+	ECksum                                  /* insufficient replicas */
+	EResumeExists                           /* resume on existing dataset without force */
+	EShareFailed                            /* filesystem share failed */
 	EUnknown
 )
 
