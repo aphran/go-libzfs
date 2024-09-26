@@ -1,3 +1,3 @@
-module github.com/bicomsystems/go-libzfs
+module github.com/aphran/go-libzfs
 
-go 1.13
+go 1.23
